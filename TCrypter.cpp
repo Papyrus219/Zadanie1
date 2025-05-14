@@ -8,10 +8,10 @@ std::string TCrypter::Shift_left(int shift_level, std::string plain_text)
 	std::string output;
 	enum char_type{Big=0,Small=1};
 	
-	for(auto el : plain_text)
+	for(int el : plain_text)
 	{
 		char_type ver;
-		if(el > 89)
+		if(el > 90)
 		{
 			ver = Small;
 			el -= 97;
@@ -24,7 +24,7 @@ std::string TCrypter::Shift_left(int shift_level, std::string plain_text)
 		
 		el -= shift_level;
 		if(el < 0)
-			el = 26-std::abs(el); 
+			el = 26-(el * -1); 
 		
 		switch(ver)
 		{
@@ -47,7 +47,7 @@ std::string TCrypter::Shift_right(int shift_level, std::string plain_text)
 	std::string output;
 	enum char_type{Big=0,Small=1};
 	
-	for(auto el : plain_text)
+	for(int el : plain_text)
 	{
 		char_type ver;
 		if(el > 89)
@@ -61,7 +61,7 @@ std::string TCrypter::Shift_right(int shift_level, std::string plain_text)
 			el -= 65;
 		}
 		
-		el -= shift_level;
+		el += shift_level;
 		if(el > 26)
 			el %= 26; 
 		

@@ -17,18 +17,19 @@ void TMenu::Mode_select(TCrypter &crypt)
 		{
 			case 1:
 				Shift_left(crypt);
-				std::cout << "\r";
+				system("cls");
 				break;
 			case 2:
 				Shift_right(crypt);
-				std::cout << "\r";
+				system("cls");
 				break;
 			case 3:
 				Exit();
-				std::cout << "\r";
+				system("cls");
 				break;
 			default:
 				std::cout << error_message;
+				system("cls");
 			break;
 		}	
 	}
